@@ -1,17 +1,19 @@
 :root {
-  --sky: #4aa8e8;
-  --sky-mid: #6ec4f5;
-  --sky-deep: #1a6fb5;
-  --navy: #071422;
-  --ink: #0c1a2b;
-  --gold: #e8c547;
-  --gold-deep: #b8860b;
-  --gold-shine: #fff4b8;
-  --cloud: #f7fbff;
+  --sky: #0a76cc;
+  --sky-mid: #2b8fd6;
+  --sky-deep: #0261bc;
+  --navy: #0c1830;
+  --ink: #1a1208;
+  --gold: #d4af37;
+  --gold-deep: #5d3101;
+  --gold-mid: #9b7950;
+  --gold-shine: #f0e4cc;
+  --bronze: #463014;
+  --cloud: #e8f4fc;
   --white: #ffffff;
-  --muted: rgba(7, 20, 34, 0.68);
-  --line: rgba(255, 255, 255, 0.18);
-  --shadow: 0 24px 60px rgba(8, 40, 80, 0.22);
+  --muted: rgba(26, 18, 8, 0.68);
+  --line: rgba(212, 175, 55, 0.35);
+  --shadow: 0 20px 48px rgba(93, 49, 1, 0.22);
   --font-display: "Cinzel", serif;
   --font-impact: "Oswald", sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -32,7 +34,8 @@ body {
   min-height: 100vh;
   font-family: var(--font-body);
   color: var(--ink);
-  background: linear-gradient(180deg, #6ec4f5 0%, #4aa8e8 28%, #2f8fd4 55%, #0d2a44 100%);
+  background:
+    linear-gradient(180deg, #3ea0e4 0%, #0a76cc 32%, #0261bc 62%, #0c1830 100%);
   overflow-x: hidden;
 }
 
@@ -55,8 +58,8 @@ code {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 80% 50% at 70% 10%, rgba(255, 255, 255, 0.45), transparent 55%),
-    radial-gradient(ellipse 40% 30% at 15% 20%, rgba(255, 255, 255, 0.28), transparent 50%);
+    radial-gradient(ellipse 80% 50% at 70% 8%, rgba(255, 255, 255, 0.5), transparent 55%),
+    radial-gradient(ellipse 45% 32% at 12% 18%, rgba(255, 255, 255, 0.28), transparent 52%);
   z-index: 0;
 }
 
@@ -77,9 +80,9 @@ main,
   justify-content: space-between;
   gap: 1rem;
   padding: 0.85rem 6vw;
-  background: rgba(18, 70, 120, 0.42);
+  background: rgba(12, 24, 48, 0.55);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 244, 184, 0.18);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.45);
 }
 
 .nav-brand {
@@ -94,9 +97,9 @@ main,
   width: 42px;
   height: 42px;
   object-fit: cover;
-  object-position: top;
+  object-position: 50% 8%;
   border-radius: 8px;
-  box-shadow: 0 0 0 2px rgba(232, 197, 71, 0.55);
+  box-shadow: 0 0 0 2px #d4af37, 0 0 0 4px #5d3101;
 }
 
 .nav-brand strong {
@@ -174,11 +177,11 @@ main,
   font-size: clamp(2.6rem, 7vw, 5.4rem);
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  background: linear-gradient(180deg, #fff8d0 0%, #f0d56a 28%, #d4a017 62%, #fff1aa 100%);
+  background: linear-gradient(180deg, #f7ecd0 0%, #e0c068 28%, #9b7950 58%, #5d3101 86%, #f0e4cc 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 3px 0 #8a5a08) drop-shadow(0 18px 28px rgba(80, 50, 0, 0.28));
+  filter: drop-shadow(0 3px 0 #463014) drop-shadow(0 16px 24px rgba(93, 49, 1, 0.35));
 }
 
 .ticker {
@@ -194,7 +197,12 @@ main,
   max-width: 38rem;
   font-size: 1.08rem;
   line-height: 1.55;
-  color: rgba(7, 20, 34, 0.82);
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow: 0 2px 14px rgba(2, 40, 90, 0.4);
+}
+
+.hero .eyebrow {
+  color: var(--gold-shine);
 }
 
 .eyebrow {
@@ -225,7 +233,7 @@ main,
   margin: 1.4rem 0 1.2rem;
   padding: 0.7rem 0.8rem;
   background: rgba(7, 20, 34, 0.55);
-  border: 1px solid rgba(232, 197, 71, 0.35);
+  border: 1px solid rgba(212, 175, 55, 0.55);
   border-radius: 999px;
   color: var(--white);
   width: fit-content;
@@ -280,9 +288,9 @@ main,
 }
 
 .btn-gold {
-  background: linear-gradient(180deg, #fff1aa, #e8c547 45%, #b8860b);
-  color: #3a2500;
-  box-shadow: 0 8px 20px rgba(184, 134, 11, 0.35);
+  background: linear-gradient(180deg, #f0e4cc, #d4af37 42%, #9b7950 78%, #5d3101);
+  color: #2a1600;
+  box-shadow: 0 8px 18px rgba(93, 49, 1, 0.38);
   padding: 0.55rem 1.15rem;
 }
 
@@ -311,18 +319,24 @@ main,
 }
 
 .hero-art img {
-  width: min(100%, 520px);
-  max-height: 86vh;
-  object-fit: contain;
-  filter: drop-shadow(0 30px 50px rgba(8, 40, 90, 0.35));
+  width: min(100%, 560px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 12%;
+  border-radius: 16px;
+  border: 3px solid #d4af37;
+  box-shadow:
+    0 0 0 7px #5d3101,
+    0 28px 50px rgba(93, 49, 1, 0.42);
+  background: #0a76cc;
 }
 
 .ticker-tape {
   overflow: hidden;
-  background: linear-gradient(90deg, #c9a227, #f3de7a, #c9a227);
-  color: #3a2500;
-  border-top: 2px solid #fff4b8;
-  border-bottom: 2px solid #8a5a08;
+  background: linear-gradient(90deg, #5d3101, #d4af37, #f0e4cc, #d4af37, #5d3101);
+  color: #2a1600;
+  border-top: 2px solid #f0e4cc;
+  border-bottom: 2px solid #463014;
   padding: 0.55rem 0;
 }
 
@@ -369,7 +383,8 @@ main,
 .about,
 .buy,
 .token {
-  background: linear-gradient(180deg, rgba(236, 247, 255, 0.92), rgba(255, 255, 255, 0.94));
+  background:
+    linear-gradient(180deg, rgba(232, 244, 252, 0.94), rgba(255, 250, 240, 0.96));
 }
 
 .about .section-head h2,
@@ -396,10 +411,10 @@ main,
 .card,
 .steps li,
 .token-grid > div {
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
+  background: linear-gradient(180deg, #fffdf6, #fffaf0);
+  border: 2px solid #d4af37;
+  border-radius: 14px;
+  box-shadow: 0 6px 0 #5d3101, var(--shadow);
   backdrop-filter: blur(8px);
 }
 
@@ -427,8 +442,8 @@ main,
   margin: 0 auto;
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(232, 197, 71, 0.4);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+  border: 2px solid #d4af37;
+  box-shadow: 0 0 0 6px #5d3101, 0 30px 70px rgba(0, 0, 0, 0.35);
 }
 
 .chart-bar {
@@ -546,8 +561,8 @@ main,
 
 .bottom-banner {
   width: 100%;
-  background: #4aa8e8;
-  border-top: 4px solid var(--gold);
+  background: #0a76cc;
+  border-top: 4px solid #d4af37;
 }
 
 .bottom-banner img {
@@ -559,7 +574,7 @@ main,
 
 .footer {
   padding: 1.6rem 6vw 2.2rem;
-  background: #071422;
+  background: #0c1830;
   color: rgba(255, 255, 255, 0.72);
   text-align: center;
   font-size: 0.9rem;
@@ -567,6 +582,18 @@ main,
 
 .footer code {
   color: var(--gold);
+}
+
+.footer a,
+.footer-links a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover,
+.footer-links a:hover {
+  text-decoration: underline;
 }
 
 .toast {
@@ -636,7 +663,8 @@ main,
   }
 
   .hero-art img {
-    max-height: 62vh;
+    width: min(100%, 420px);
+    max-height: none;
   }
 }
 

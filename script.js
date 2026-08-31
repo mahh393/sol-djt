@@ -6,9 +6,10 @@ const EMBED = `${DEX}?embed=1&loadChartSettings=0&trades=0&tabs=0&info=1&chartLe
 const dexIframe = document.getElementById("dex-iframe");
 const dexOpen = document.getElementById("dex-open");
 const dexLink = document.getElementById("dex-link");
-const jupiterLink = document.getElementById("jupiter-link");
-const raydiumLink = document.getElementById("raydium-link");
+const pumpLink = document.getElementById("pump-link");
 const buyLink = document.getElementById("buy-link");
+const navBuy = document.getElementById("nav-buy");
+const xLinks = document.querySelectorAll('a[href*="x.com"], a[href*="twitter.com"]');
 const toast = document.getElementById("toast");
 const nav = document.querySelector(".nav");
 const toggle = document.querySelector(".nav-toggle");
@@ -16,11 +17,14 @@ const toggle = document.querySelector(".nav-toggle");
 if (dexIframe) dexIframe.src = EMBED;
 if (dexOpen) dexOpen.href = DEX;
 if (dexLink) dexLink.href = DEX;
-if (jupiterLink) jupiterLink.href = `https://jup.ag/swap/SOL-${CA}`;
-if (raydiumLink) {
-  raydiumLink.href = `https://raydium.io/swap/?inputMint=sol&outputMint=${CA}`;
-}
-if (buyLink) buyLink.href = `https://jup.ag/swap/SOL-${CA}`;
+const PUMP = `https://pump.fun/coin/${CA}`;
+const X = "https://x.com/DJTCryptoBoss";
+if (pumpLink) pumpLink.href = PUMP;
+if (buyLink) buyLink.href = PUMP;
+if (navBuy) navBuy.href = PUMP;
+xLinks.forEach((a) => {
+  a.href = X;
+});
 
 function showToast(message) {
   toast.textContent = message;
