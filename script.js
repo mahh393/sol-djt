@@ -1,4 +1,4 @@
-const CA = "0xtba";
+const CA = "8ptYxNrBXTv7qgCVgCYTHpmHH2HA6Ecmk26sUnBppump";
 const CHAIN = "solana";
 const DEX = `https://dexscreener.com/${CHAIN}/${CA}`;
 const EMBED = `${DEX}?embed=1&loadChartSettings=0&trades=0&tabs=0&info=1&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15`;
@@ -58,5 +58,20 @@ if (toggle && nav) {
       nav.classList.remove("open");
       toggle.setAttribute("aria-expanded", "false");
     });
+  });
+}
+
+const stage = document.querySelector(".logo-stage");
+if (stage && window.matchMedia("(pointer: fine)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  stage.addEventListener("mousemove", (event) => {
+    const box = stage.getBoundingClientRect();
+    const x = (event.clientX - box.left) / box.width - 0.5;
+    const y = (event.clientY - box.top) / box.height - 0.5;
+    stage.style.setProperty("--tilt-x", (y * -10).toFixed(2) + "deg");
+    stage.style.setProperty("--tilt-y", (x * 12).toFixed(2) + "deg");
+  });
+  stage.addEventListener("mouseleave", () => {
+    stage.style.setProperty("--tilt-x", "0deg");
+    stage.style.setProperty("--tilt-y", "0deg");
   });
 }
